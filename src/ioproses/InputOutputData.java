@@ -27,7 +27,7 @@ public class InputOutputData extends javax.swing.JFrame {
     private String inputdata,outputdata,hasil;
     
     private boolean jpg=false,png=false,tiff=false,gif=false;
-    float ratiojpg=(float) 0.7,ratiopng,ratiotiff,ratiogif;
+    //loat ratiojpg=(float) 0.7,ratiopng,ratiotiff,ratiogif;
     File inputfile,outputfile;
     /**
      * Creates new form InputOutputData
