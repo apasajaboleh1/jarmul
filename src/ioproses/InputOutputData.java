@@ -8,6 +8,7 @@ package ioproses;
 import convert.imageconvert;
 import java.awt.image.BufferedImage;
 import java.io.*;
+import java.text.DecimalFormat;
 import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -60,6 +61,10 @@ public class InputOutputData extends javax.swing.JFrame {
         Gif = new javax.swing.JCheckBox();
         Tiff = new javax.swing.JCheckBox();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -137,6 +142,14 @@ public class InputOutputData extends javax.swing.JFrame {
 
         jLabel3.setText("Convert to ");
 
+        jLabel4.setText("Created by");
+
+        jLabel5.setText("Freddy Hermawan Yuwono 5113100040");
+
+        jLabel6.setText("Julio Anthony L 5113100148");
+
+        jLabel7.setText("M. Rijal 51131000193");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -156,12 +169,15 @@ public class InputOutputData extends javax.swing.JFrame {
                                     .addComponent(jLabel2))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Text2)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(12, 12, 12)
-                                        .addComponent(StartProcess)
-                                        .addGap(80, 80, 80)
-                                        .addComponent(Exit))
-                                    .addComponent(Text2))))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(StartProcess)
+                                                .addGap(80, 80, 80)
+                                                .addComponent(Exit))
+                                            .addComponent(jLabel5))))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(Open1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -172,8 +188,18 @@ public class InputOutputData extends javax.swing.JFrame {
                             .addComponent(Png)
                             .addComponent(Jpeg)
                             .addComponent(Gif)
-                            .addComponent(Tiff))))
-                .addContainerGap(56, Short.MAX_VALUE))
+                            .addComponent(Tiff)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(157, 157, 157)
+                        .addComponent(jLabel4))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(125, 125, 125)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel7))
+                            .addComponent(jLabel6))))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,7 +228,14 @@ public class InputOutputData extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(StartProcess)
                     .addComponent(Exit))
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel7))
         );
 
         pack();
@@ -216,9 +249,12 @@ public class InputOutputData extends javax.swing.JFrame {
             File o= new File(ouput+"."+format);
             double out =o.length();
             double in=i.length();
-            double ratio =Math.abs(in-out)/in;
+            double ratio =(Math.abs(in-out)/in)*100;
+            DecimalFormat df =new DecimalFormat("#.###");
+            String temp1=df.format(ratio);
+            
             if (result) {
-                        temp="BMP Image converted successfully to "+format+ " and ratio = " +String.valueOf(ratio*100) +"%\n";
+                        temp="BMP Image converted successfully to "+format+ " and ratio = " +temp1 +"%\n";
                         
                         //System.out.println("BMP Image converted successfully to "+format+ " and ratio = " +ratio*100 +"%");
                 } else {
@@ -251,8 +287,11 @@ public class InputOutputData extends javax.swing.JFrame {
         int retval1 = fileChooser.showOpenDialog(this);
         if (retval1==JFileChooser.APPROVE_OPTION)
         {
+            String tempof;
             outputfile = fileChooser.getSelectedFile();
-            outputdata = String.valueOf(outputfile);
+            tempof = String.valueOf(outputfile);
+            String[] bufferof =tempof.split("\\.");
+            outputdata=bufferof[0];
             Text2.setText(outputdata);
         }
     }//GEN-LAST:event_Open2ActionPerformed
@@ -379,6 +418,10 @@ public class InputOutputData extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JOptionPane popup;
     // End of variables declaration//GEN-END:variables
 }
