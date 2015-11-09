@@ -254,7 +254,7 @@ public class InputOutputData extends javax.swing.JFrame {
             String temp1=df.format(ratio);
             
             if (result) {
-                        temp="BMP Image converted successfully to "+format+ " and ratio = " +temp1 +"%\n";
+                        temp="BMP Image converted successfully to "+format.toUpperCase()+ " and ratio = " +temp1 +"%\n";
                         
                         //System.out.println("BMP Image converted successfully to "+format+ " and ratio = " +ratio*100 +"%");
                 } else {
